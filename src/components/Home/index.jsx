@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 
 import { Card, Icon, Container as Vessel } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
@@ -20,7 +20,7 @@ const Home = () => {
 
   const getTimeline = () => {
     axios
-      .get(`/api/timeline`)
+      .get(`https://kshiva1126.com/chiritsumo/server/api/timeline`)
       .then(res => {
         setPosts(res.data.posts)
       })

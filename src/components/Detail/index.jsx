@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { useParams } from 'react-router'
 import { Container as Vessel, Segment, Header, Icon } from 'semantic-ui-react'
 import ReactMarkdown from 'react-markdown'
@@ -23,7 +23,7 @@ const Detail = props => {
 
   const getPost = id => {
     axios
-      .get(`/api/post/${id}`)
+      .get(`https://kshiva1126.com/chiritsumo/server/api/post/${id}`)
       .then(res => {
         setPost(res.data)
       })

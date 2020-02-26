@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { Input, Button } from 'semantic-ui-react'
 
 const Login = () => {
@@ -47,7 +47,7 @@ const Login = () => {
     const password = values.password
     const data = { name, email, password }
     await axios
-      .post('/api/login', data)
+      .post('https://kshiva1126.com/chiritsumo/server/api/login', data)
       .then(res => {
         window.location.href = '/home'
       })

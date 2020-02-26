@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { useParams } from 'react-router'
 import { Card, Icon, Container as Vessel } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
@@ -21,7 +21,7 @@ const Favorite = props => {
 
   useEffect(() => {
     axios
-      .get('/api/favorite/' + encodeURIComponent(String(id)))
+      .get('https://kshiva1126.com/chiritsumo/server/api/favorite/' + encodeURIComponent(String(id)))
       .then(res => {
         setPosts(res.data.posts)
       })
