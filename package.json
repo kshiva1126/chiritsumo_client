@@ -1,5 +1,5 @@
 {
-  "name": "chiritsumo-client",
+  "name": "chiritsumo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "markdown-it": "^10.0.0",
+    "now": "^17.0.4",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -29,7 +30,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier './src/**/*.jsx' --write"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "https://kshiva1126.com/chiritsumo/server",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -44,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "./"
 }

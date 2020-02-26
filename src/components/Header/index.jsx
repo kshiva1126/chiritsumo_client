@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Container from './style'
 import { Segment, Image } from 'semantic-ui-react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import Post from '../Post'
 
 const Header = props => {
   const logout = async () => {
     await axios
-      .post('/api/logout')
+      .post('https://kshiva1126.com/chiritsumo/server/api/logout')
       .then(res => {
         window.location.href = '/login'
       })
@@ -30,7 +30,7 @@ const Header = props => {
                 circular
                 size="mini"
                 floated="right"
-                src={'http://localhost:8080/storage/images/' + image_file}
+                src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
               />
             </Link>
           )}

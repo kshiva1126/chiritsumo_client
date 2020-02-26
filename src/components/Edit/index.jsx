@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Header, Button, Icon, Input } from 'semantic-ui-react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { InputStyle } from './style'
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite'
@@ -50,7 +50,7 @@ const Edit = props => {
     if (checkError() === false) {
       const data = { ...values }
       await axios
-        .post('/api/edit', data)
+        .post('https://kshiva1126.com/chiritsumo/server/api/edit', data)
         .then(res => {
           window.location.href = '/home'
         })

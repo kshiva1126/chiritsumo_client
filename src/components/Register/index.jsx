@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { Input, Button, TextArea } from 'semantic-ui-react'
 
 const Register = () => {
@@ -57,9 +57,10 @@ const Register = () => {
     data.append('email', values.email)
     data.append('password', values.password)
     data.append('image', values.image)
+    data.append('description', values.description)
 
     await axios
-      .post('/api/register', data)
+      .post('https://kshiva1126.com/chiritsumo/server/api/register', data)
       .then(() => {
         window.location.href = '/home'
       })
