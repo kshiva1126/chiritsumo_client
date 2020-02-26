@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 
 const Following = props => {
   const [isFollow, setFollow] = useState(false)

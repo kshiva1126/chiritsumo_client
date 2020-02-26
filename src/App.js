@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Redirect, Route, Switch } from 'react-router'
-import { axios } from './config/axios'
 
 import Header from './components/Header'
 import Register from './components/Register'
@@ -13,32 +12,10 @@ import Follow from './components/Follow'
 import Favorite from './components/Favorite'
 import ChangePassword from './components/ChangePassword'
 
-function App() {
-  const [auth, setAuth] = useState(false)
-  const [user, setUser] = useState({
-    id: '',
-    name: '',
-    email: '',
-    image_path: '',
-    description: ''
-  })
-  const auth_check = async () => {
-    axios
-      .get('https://kshiva1126.com/chiritsumo/server/api/auth_check')
-      .then(res => {
-        setAuth(res.data.auth)
-        setUser(res.data.user)
-      })
-      .catch(err => {
-        alert('不明なエラーです。')
-      })
-  }
+import useAuth from './utils/useAuth'
 
-  useEffect(() => {
-    ;(async () => {
-      await auth_check()
-    })()
-  }, [])
+function App() {
+  const [auth, user] = useAuth()
 
   return (
     <>
@@ -46,26 +23,9 @@ function App() {
       {auth ? (
         <Switch>
           <Route path="/home" component={Home} />
-          <Route
-            path="/user/:id"
-            render={props => <User user_id={user.id} auth={auth} />}
-          />
-          <Route
-            path="/post/:id"
-            render={props => <Detail user_id={user.id} user_name={user.name} />}
-          />
-          <Route
-            path="/profile"
-            render={props => (
-              <Profile
-                auth={auth}
-                user_id={user.id}
-                user_name={user.name}
-                user_email={user.email}
-                user_description={user.description}
-              />
-            )}
-          />
+          <Route path="/user/:id" component={User} />
+          <Route path="/post/:id" component={Detail} />
+          <Route path="/profile" component={Profile} />
           <Route
             exact
             path="/followee/:id"
@@ -84,14 +44,7 @@ function App() {
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route
-            path="/user/:id"
-            render={props => <User user_id={user.id} />}
-          />
-          <Route
-            path="/post/:id"
-            render={props => <Detail user_id={user.id} user_name={user.name} />}
-          />
+          <Route path="/user/:id" component={User} />
           <Redirect to="/login" />
         </Switch>
       )}

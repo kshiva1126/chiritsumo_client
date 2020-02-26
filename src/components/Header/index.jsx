@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Container from './style'
 import { Segment, Image } from 'semantic-ui-react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import Post from '../Post'
 
 const Header = props => {

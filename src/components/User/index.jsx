@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Following from './Following'
+
+import useAuth from '../../utils/useAuth'
 
 import {
   Card,
@@ -13,7 +15,7 @@ import {
   Segment
 } from 'semantic-ui-react'
 
-const User = props => {
+const User = () => {
   const { id } = useParams()
   const [user, setUser] = useState({
     id: 0,
@@ -34,6 +36,8 @@ const User = props => {
       writer_name: ''
     }
   ])
+
+  const [auth, loginUser] = useAuth()
 
   const getUser = id => {
     axios
@@ -70,8 +74,8 @@ const User = props => {
                 <span className="user_name">{user.name}</span>
               </div>
               <div className="user_box2">
-                {props.auth &&
-                  (props.user_id > 0 && props.user_id === user.id ? (
+                {auth &&
+                  (loginUser.id > 0 && loginUser.id === user.id ? (
                     <div className="edit_profile">
                       <Link to="/profile">プロフィールを編集する</Link>
                     </div>
@@ -83,7 +87,7 @@ const User = props => {
               </div>
             </div>
             <p className="user_desc">{user.description}</p>
-            {props.user_id && (
+            {loginUser.id && (
               <div className="menu">
                 <div className="item">
                   <Link to={'/followee/' + encodeURIComponent(String(user.id))}>

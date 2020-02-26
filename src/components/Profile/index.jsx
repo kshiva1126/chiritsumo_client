@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { Input, Button, TextArea } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import useAuth from '../../utils/useAuth'
 
-const Profile = props => {
-  if (props.auth === false) {
-    window.location.href = '/login'
-  }
+const Profile = () => {
+  const [auth, loginUser] = useAuth()
 
   const [user, setUser] = useState({
-    name: props.user_name,
-    email: props.user_email,
+    name: '',
+    email: '',
     image: null,
-    description: props.user_description || ''
+    description: ''
   })
+
+  useEffect(() => {
+    setUser({
+      ...loginUser
+    })
+  }, [loginUser])
 
   const [errors, setErrors] = useState({})
 

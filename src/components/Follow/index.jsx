@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Card, Icon, Container as Vessel, Image } from 'semantic-ui-react'

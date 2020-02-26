@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Rating } from 'semantic-ui-react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 
 const Fav = props => {
   const [favo, setFavo] = useState(0)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from './style'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { Input, Button, TextArea } from 'semantic-ui-react'
 
 const Register = () => {

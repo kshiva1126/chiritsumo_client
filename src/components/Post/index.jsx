@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Header, Button, Icon, Input } from 'semantic-ui-react'
-import { axios } from '../../config/axios'
+import { axios } from '../../utils/axios'
 import { InputStyle } from './style'
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite'
