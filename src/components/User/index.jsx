@@ -37,7 +37,7 @@ const User = props => {
 
   const getUser = id => {
     axios
-      .get('/api/user/' + encodeURIComponent(String(id)))
+      .get('https://kshiva1126.com/chiritsumo/server/api/user/' + encodeURIComponent(String(id)))
       .then(res => {
         setUser({
           ...res.data.user
@@ -65,7 +65,7 @@ const User = props => {
                 <Image
                   circular
                   size="small"
-                  src={'http://localhost:8080/storage/images/' + image_file}
+                  src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
                 />
                 <span className="user_name">{user.name}</span>
               </div>

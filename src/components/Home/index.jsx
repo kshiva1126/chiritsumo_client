@@ -20,7 +20,7 @@ const Home = () => {
 
   const getTimeline = () => {
     axios
-      .get(`/api/timeline`)
+      .get(`https://kshiva1126.com/chiritsumo/server/api/timeline`)
       .then(res => {
         setPosts(res.data.posts)
       })

@@ -18,9 +18,9 @@ const Follow = props => {
   ])
 
   useEffect(() => {
-    let path = '/api/follower'
+    let path = 'https://kshiva1126.com/chiritsumo/server/api/follower'
     if (props.is_followee) {
-      path = '/api/followee'
+      path = 'https://kshiva1126.com/chiritsumo/server/api/followee'
     }
 
     axios
@@ -50,7 +50,7 @@ const Follow = props => {
                   <Image
                     floated="right"
                     size="mini"
-                    src={'http://localhost:8080/storage/images/' + image_file}
+                    src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
                   />
                   <Card.Header>{f.name}</Card.Header>
                   <Card.Description>{f.description}</Card.Description>

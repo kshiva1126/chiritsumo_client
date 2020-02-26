@@ -57,7 +57,7 @@ const Profile = props => {
     data.append('description', user.description || '')
 
     await axios
-      .post(`/api/profile/`, data)
+      .post(`https://kshiva1126.com/chiritsumo/server/api/profile/`, data)
       .then(res => {
         window.location.href = '/home'
       })

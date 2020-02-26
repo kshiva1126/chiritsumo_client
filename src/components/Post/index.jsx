@@ -49,7 +49,7 @@ const Post = () => {
     if (checkError() === false) {
       const data = { ...values }
       await axios
-        .post('/api/post', data)
+        .post('https://kshiva1126.com/chiritsumo/server/api/post', data)
         .then(res => {
           window.location.href = '/home'
         })

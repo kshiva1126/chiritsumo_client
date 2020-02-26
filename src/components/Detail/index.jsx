@@ -23,7 +23,7 @@ const Detail = props => {
 
   const getPost = id => {
     axios
-      .get(`/api/post/${id}`)
+      .get(`https://kshiva1126.com/chiritsumo/server/api/post/${id}`)
       .then(res => {
         setPost(res.data)
       })

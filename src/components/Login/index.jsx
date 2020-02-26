@@ -47,7 +47,7 @@ const Login = () => {
     const password = values.password
     const data = { name, email, password }
     await axios
-      .post('/api/login', data)
+      .post('https://kshiva1126.com/chiritsumo/server/api/login', data)
       .then(res => {
         window.location.href = '/home'
       })

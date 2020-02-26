@@ -24,7 +24,7 @@ function App() {
   })
   const auth_check = async () => {
     axios
-      .get('/api/auth_check')
+      .get('https://kshiva1126.com/chiritsumo/server/api/auth_check')
       .then(res => {
         setAuth(res.data.auth)
         setUser(res.data.user)
@@ -55,7 +55,7 @@ function App() {
             render={props => <Detail user_id={user.id} user_name={user.name} />}
           />
           <Route
-            path="/profile/"
+            path="/profile"
             render={props => (
               <Profile
                 auth={auth}

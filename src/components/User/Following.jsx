@@ -6,7 +6,7 @@ const Following = props => {
 
   useEffect(() => {
     axios
-      .get('/api/following/' + encodeURIComponent(String(props.user_id)))
+      .get('https://kshiva1126.com/chiritsumo/server/api/following/' + encodeURIComponent(String(props.user_id)))
       .then(res => {
         if (res.data.is_following === true) {
           setFollow(true)
@@ -22,7 +22,7 @@ const Following = props => {
 
   const follow = async () => {
     await axios
-      .post(`/api/following/`, { following_user_id: props.user_id })
+      .post(`https://kshiva1126.com/chiritsumo/server/api/following/`, { following_user_id: props.user_id })
       .then(res => {
         setFollow(!isFollow)
       })

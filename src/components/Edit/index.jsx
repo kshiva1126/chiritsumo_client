@@ -50,7 +50,7 @@ const Edit = props => {
     if (checkError() === false) {
       const data = { ...values }
       await axios
-        .post('/api/edit', data)
+        .post('https://kshiva1126.com/chiritsumo/server/api/edit', data)
         .then(res => {
           window.location.href = '/home'
         })
