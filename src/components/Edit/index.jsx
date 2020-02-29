@@ -65,9 +65,11 @@ const Edit = props => {
 
   const mdParser = new MarkdownIt(/* Markdown-it options */)
 
+  const plugins = ['header', 'fornts', 'link', 'clear', 'logger', 'mode-toggle', 'full-screen']
+
   return (
     <Modal
-      trigger={<span className="wrap_menu edit">編集する</span>}
+      trigger={<span className="wrap_menu edit"><Icon name='pencil' />編集</span>}
       closeIcon
       basic
     >
@@ -87,11 +89,12 @@ const Edit = props => {
           value={values.content}
           renderHTML={text => mdParser.render(text)}
           onChange={handleEditorChange}
+          plugins={plugins}
         />
       </Modal.Content>
       <Modal.Actions>
         <Button color="green" inverted onClick={edit}>
-          <Icon name="paper plane" /> 編集する
+          <Icon name="paper plane" /> 保存する
         </Button>
       </Modal.Actions>
     </Modal>

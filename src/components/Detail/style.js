@@ -93,6 +93,10 @@ const Container = styled.div`
     background-color: black !important;
   }
 
+  pre code {
+    color: white !important;
+  }
+
   blockquote {
     color: #666;
     margin: 0;
@@ -131,6 +135,18 @@ const Container = styled.div`
     padding: 0 0.25rem 0 0.25rem;
     border: solid 2px #7fcfe2;
     border-radius: 1rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    .menu {
+      margin-top: 3rem;
+      display: flex;
+      font-size: 0.5rem;
+    }
+
+    .wrap_menu {
+      margin-right: 0.75rem;
+    }
   }
 `
 
