@@ -33,21 +33,6 @@ const Container = styled.div`
     color: #4183c4;
     cursor: pointer;
   }
-
-  .menu {
-    text-align: right;
-  }
-
-  @media screen and (max-width: 600px) {
-    .title {
-      text-align: center;
-      font-size: 2rem;
-    }
-
-    .link {
-      color: initial;
-    }
-  }
 `
 
 export default Container
