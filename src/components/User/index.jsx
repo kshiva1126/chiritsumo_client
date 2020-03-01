@@ -41,7 +41,10 @@ const User = () => {
 
   const getUser = id => {
     axios
-      .get('https://kshiva1126.com/chiritsumo/server/api/user/' + encodeURIComponent(String(id)))
+      .get(
+        'https://kshiva1126.com/chiritsumo/server/api/user/' +
+          encodeURIComponent(String(id))
+      )
       .then(res => {
         setUser({
           ...res.data.user
@@ -69,7 +72,10 @@ const User = () => {
                 <Image
                   circular
                   size="small"
-                  src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
+                  src={
+                    'https://kshiva1126.com/chiritsumo/server/storage/images/' +
+                    image_file
+                  }
                 />
                 <span className="user_name">{user.name}</span>
               </div>
@@ -95,12 +101,14 @@ const User = () => {
                   </Link>
                 </div>
                 <div className="item">
-                  <Link to={'/follower/' + encodeURIComponent(String(user.id))} >
+                  <Link to={'/follower/' + encodeURIComponent(String(user.id))}>
                     {user.follower}フォロワー
                   </Link>
                 </div>
                 <div className="item">
-                  <Link to={'/favorite/' + encodeURIComponent(String(user.id))}>お気に入り</Link>
+                  <Link to={'/favorite/' + encodeURIComponent(String(user.id))}>
+                    お気に入り
+                  </Link>
                 </div>
               </div>
             )}

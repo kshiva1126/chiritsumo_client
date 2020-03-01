@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Container from './style'
-import { Segment, Image, Responsive, Dropdown, Confirm } from 'semantic-ui-react'
+import {
+  Segment,
+  Image,
+  Responsive,
+  Dropdown,
+  Confirm
+} from 'semantic-ui-react'
 import { axios } from '../../utils/axios'
 import Post from '../Post'
 
@@ -23,8 +29,6 @@ const Header = props => {
     setOpen(res)
   }
 
-  const [visible, setVisible] = useState(false)
-
   return (
     <Container>
       <Segment>
@@ -39,7 +43,10 @@ const Header = props => {
                   circular
                   size="mini"
                   floated="right"
-                  src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
+                  src={
+                    'https://kshiva1126.com/chiritsumo/server/storage/images/' +
+                    image_file
+                  }
                 />
               </Link>
             )}
@@ -62,24 +69,29 @@ const Header = props => {
           </Responsive>
           <Responsive maxWidth={599}>
             <div className="menu-wrap">
-              <Dropdown
-                text='menu'
-                button
-                floating
-              >
+              <Dropdown text="menu" button floating>
                 <Dropdown.Menu>
                   {props.auth ? (
                     <>
-                      <Dropdown.Item text='マイページ' as={Link} to={'/user/' + encodeURIComponent(String(props.user_id))} />
-                      <a role='option' className='item'>
+                      <Dropdown.Item
+                        text="マイページ"
+                        as={Link}
+                        to={
+                          '/user/' + encodeURIComponent(String(props.user_id))
+                        }
+                      />
+                      <a role="option" className="item">
                         <Post />
                       </a>
-                      <Dropdown.Item text='ログアウト' onClick={() => handleConfirm(true)} />
+                      <Dropdown.Item
+                        text="ログアウト"
+                        onClick={() => handleConfirm(true)}
+                      />
                     </>
                   ) : (
                     <>
-                      <Dropdown.Item text='ログイン' as={Link} to='/login' />
-                      <Dropdown.Item text='会員登録' as={Link} to='/register' />
+                      <Dropdown.Item text="ログイン" as={Link} to="/login" />
+                      <Dropdown.Item text="会員登録" as={Link} to="/register" />
                     </>
                   )}
                 </Dropdown.Menu>
@@ -88,7 +100,7 @@ const Header = props => {
           </Responsive>
           <Confirm
             open={open}
-            content='ログアウトしますか？'
+            content="ログアウトしますか？"
             onCancel={() => handleConfirm(false)}
             onConfirm={logout}
           />
