@@ -23,8 +23,6 @@ const Header = props => {
     setOpen(res)
   }
 
-  const [visible, setVisible] = useState(false)
-
   return (
     <Container>
       <Segment>
