@@ -164,5 +164,6 @@ const Container = styled.div`
       margin-right: 0.75rem;
     }
   }
+`
 
 export default Container

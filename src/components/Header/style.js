@@ -48,5 +48,6 @@ const Container = styled.div`
       color: initial;
     }
   }
+`
 
 export default Container
