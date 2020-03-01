@@ -7,7 +7,10 @@ const Fav = props => {
 
   useEffect(() => {
     axios
-      .get('https://kshiva1126.com/chiritsumo/server/api/post/fav/' + encodeURIComponent(String(props.post_id)))
+      .get(
+        'https://kshiva1126.com/chiritsumo/server/api/post/fav/' +
+          encodeURIComponent(String(props.post_id))
+      )
       .then(res => {
         if (res.data.is_favorite === true) {
           setFavo(1)
@@ -20,7 +23,9 @@ const Fav = props => {
 
   const fav = async () => {
     await axios
-      .post('https://kshiva1126.com/chiritsumo/server/api/fav', { post_id: props.post_id })
+      .post('https://kshiva1126.com/chiritsumo/server/api/fav', {
+        post_id: props.post_id
+      })
       .then(res => {
         const rating = res.data.is_delete_favo === true ? 0 : 1
         setFavo(rating)

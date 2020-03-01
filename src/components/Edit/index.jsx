@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { Modal, Header, Button, Icon, Input, Responsive } from 'semantic-ui-react'
+import {
+  Modal,
+  Header,
+  Button,
+  Icon,
+  Input,
+  Responsive
+} from 'semantic-ui-react'
 import { axios } from '../../utils/axios'
 import { InputStyle, EditorStyle } from './style'
 import MarkdownIt from 'markdown-it'
@@ -85,31 +92,47 @@ const Edit = props => {
           </InputStyle>
         </Header>
         <EditorStyle>
-        <Responsive minWidth={600}>
-          <MdEditor
-            name="content"
-            value={values.content}
-            renderHTML={text => mdParser.render(text)}
-            onChange={handleEditorChange}
-            plugins={['header', 'fornts', 'link', 'clear', 'logger', 'mode-toggle', 'full-screen']}
-          />
-        </Responsive>
-        <Responsive maxWidth={599}>
-          <MdEditor
-            name="content"
-            value={values.content}
-            renderHTML={text => mdParser.render(text)}
-            onChange={handleEditorChange}
-            config={{
-              view: {
-                menu: true,
-                md: true,
-                html: false,
-              }
-            }}
-            plugins={['header', 'fornts', 'link', 'clear', 'logger', 'mode-toggle-cust', 'full-screen']}
-          />
-        </Responsive>
+          <Responsive minWidth={600}>
+            <MdEditor
+              name="content"
+              value={values.content}
+              renderHTML={text => mdParser.render(text)}
+              onChange={handleEditorChange}
+              plugins={[
+                'header',
+                'fornts',
+                'link',
+                'clear',
+                'logger',
+                'mode-toggle',
+                'full-screen'
+              ]}
+            />
+          </Responsive>
+          <Responsive maxWidth={599}>
+            <MdEditor
+              name="content"
+              value={values.content}
+              renderHTML={text => mdParser.render(text)}
+              onChange={handleEditorChange}
+              config={{
+                view: {
+                  menu: true,
+                  md: true,
+                  html: false
+                }
+              }}
+              plugins={[
+                'header',
+                'fornts',
+                'link',
+                'clear',
+                'logger',
+                'mode-toggle-cust',
+                'full-screen'
+              ]}
+            />
+          </Responsive>
         </EditorStyle>
       </Modal.Content>
       <Modal.Actions>

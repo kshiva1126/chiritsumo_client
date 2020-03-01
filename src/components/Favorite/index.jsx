@@ -21,7 +21,10 @@ const Favorite = props => {
 
   useEffect(() => {
     axios
-      .get('https://kshiva1126.com/chiritsumo/server/api/favorite/' + encodeURIComponent(String(id)))
+      .get(
+        'https://kshiva1126.com/chiritsumo/server/api/favorite/' +
+          encodeURIComponent(String(id))
+      )
       .then(res => {
         setPosts(res.data.posts)
       })
