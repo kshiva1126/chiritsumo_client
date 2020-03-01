@@ -93,10 +93,6 @@ const Container = styled.div`
     background-color: black !important;
   }
 
-  pre code {
-    color: white !important;
-  }
-
   blockquote {
     color: #666;
     margin: 0;
@@ -168,6 +164,5 @@ const Container = styled.div`
       margin-right: 0.75rem;
     }
   }
-`
 
 export default Container

@@ -69,7 +69,7 @@ const Edit = props => {
 
   return (
     <Modal
-      trigger={<span className="wrap_menu edit"><Icon name='pencil' />編集</span>}
+      trigger={<span className="wrap_menu edit">編集する</span>}
       closeIcon
       basic
     >
@@ -114,7 +114,7 @@ const Edit = props => {
       </Modal.Content>
       <Modal.Actions>
         <Button color="green" inverted onClick={edit}>
-          <Icon name="paper plane" /> 保存する
+          <Icon name="paper plane" /> 編集する
         </Button>
       </Modal.Actions>
     </Modal>
