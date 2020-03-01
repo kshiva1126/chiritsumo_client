@@ -1,36 +1,36 @@
-import * as React from 'react';
-import { PluginComponent } from 'react-markdown-editor-lite';
+import * as React from 'react'
+import { PluginComponent } from 'react-markdown-editor-lite'
 import Icon from './Icon'
 
 export default class ModeToggleCust extends PluginComponent {
-  static pluginName = 'mode-toggle-cust';
-  static align = 'right';
+  static pluginName = 'mode-toggle-cust'
+  static align = 'right'
 
   get isDisplay() {
     if (this.editorConfig.canView) {
-      return this.editorConfig.canView.html && this.editorConfig.canView.md;
+      return this.editorConfig.canView.html && this.editorConfig.canView.md
     }
-    return false;
+    return false
   }
 
   get next() {
-    const { view } = this.state;
+    const { view } = this.state
     if (view.html && view.md) {
-      return 2;
+      return 2
     } else if (!this.state.view.html) {
-      return 1;
+      return 1
     }
   }
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
 
     this.state = {
-      view: this.editor.getView(),
-    };
+      view: this.editor.getView()
+    }
   }
 
   handleClick() {
@@ -38,49 +38,49 @@ export default class ModeToggleCust extends PluginComponent {
       case 1:
         this.editor.setView({
           html: true,
-          md: false,
-        });
-        break;
+          md: false
+        })
+        break
       default:
         this.editor.setView({
           html: false,
-          md: true,
-        });
-        break;
+          md: true
+        })
+        break
     }
   }
 
   handleChange(view) {
-    this.setState({ view });
+    this.setState({ view })
   }
 
   componentDidMount() {
-    this.editor.on('viewchange', this.handleChange);
+    this.editor.on('viewchange', this.handleChange)
   }
 
   componentWillUnmount() {
-    this.editor.off('viewchange', this.handleChange);
+    this.editor.off('viewchange', this.handleChange)
   }
 
   getDisplayInfo() {
-    const next = this.next;
+    const next = this.next
     switch (next) {
       case 1:
         return {
           icon: 'visibility',
-          title: 'Preview',
-        };
+          title: 'Preview'
+        }
       default:
         return {
           icon: 'keyboard',
-          title: 'Editor',
-        };
+          title: 'Editor'
+        }
     }
   }
 
   render() {
     if (this.isDisplay) {
-      const display = this.getDisplayInfo();
+      const display = this.getDisplayInfo()
       return (
         <span
           className="button button-type-mode"
@@ -89,9 +89,9 @@ export default class ModeToggleCust extends PluginComponent {
         >
           <Icon type={display.icon} />
         </span>
-      );
+      )
     } else {
-      return null;
+      return null
     }
   }
 }

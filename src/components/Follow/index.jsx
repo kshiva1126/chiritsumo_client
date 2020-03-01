@@ -50,7 +50,10 @@ const Follow = props => {
                   <Image
                     floated="right"
                     size="mini"
-                    src={'https://kshiva1126.com/chiritsumo/server/storage/images/' + image_file}
+                    src={
+                      'https://kshiva1126.com/chiritsumo/server/storage/images/' +
+                      image_file
+                    }
                   />
                   <Card.Header>{f.name}</Card.Header>
                   <Card.Description>{f.description}</Card.Description>

@@ -46,7 +46,10 @@ const ChangePassword = () => {
     data.append('new', passwords.new)
 
     await axios
-      .post('https://kshiva1126.com/chiritsumo/server/api/password/change', data)
+      .post(
+        'https://kshiva1126.com/chiritsumo/server/api/password/change',
+        data
+      )
       .then(res => {
         window.location.href = '/home'
       })

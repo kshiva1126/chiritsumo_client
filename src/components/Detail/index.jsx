@@ -8,9 +8,11 @@ import Container from './style'
 import Fav from './Fav'
 import Edit from '../Edit'
 import { Link } from 'react-router-dom'
+import useAuth from '../../utils/useAuth'
 
 const Detail = props => {
   const { id } = useParams()
+  const [auth, loginUser] = useAuth()
   const [post, setPost] = useState({
     id: 0,
     title: '',
@@ -58,12 +60,12 @@ const Detail = props => {
               <Icon name="calendar" />
               {post.updated_at}
             </div>
-            {props.user_id > 0 && (
+            {loginUser.id > 0 && (
               <div className="wrap_menu">
-                <Fav user_id={props.user_id} post_id={post.id} />
+                <Fav user_id={loginUser.id} post_id={post.id} />
               </div>
             )}
-            {props.user_id === post.writer_id && (
+            {loginUser.id === post.writer_id && (
               <Edit
                 title={post.title}
                 content={post.content}
