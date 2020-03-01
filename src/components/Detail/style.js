@@ -138,6 +138,26 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: 600px) {
+    h1.ui.header {
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+
     .menu {
       margin-top: 3rem;
       display: flex;

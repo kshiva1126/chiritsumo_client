@@ -24,6 +24,8 @@ const Header = props => {
     setOpen(res)
   }
 
+  const [visible, setVisible] = useState(false)
+
   return (
     <Container>
       <Segment>
@@ -60,7 +62,7 @@ const Header = props => {
             </div>
           </Responsive>
           <Responsive maxWidth={599}>
-            <div className="menu">
+            <div className="menu-wrap">
               <Dropdown
                 text='menu'
                 button

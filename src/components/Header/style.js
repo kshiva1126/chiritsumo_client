@@ -34,7 +34,7 @@ const Container = styled.div`
     cursor: pointer;
   }
 
-  .menu {
+  .menu-wrap {
     text-align: right;
   }
 
