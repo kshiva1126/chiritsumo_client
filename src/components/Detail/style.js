@@ -132,6 +132,37 @@ const Container = styled.div`
     border: solid 2px #7fcfe2;
     border-radius: 1rem;
   }
-`
+
+  @media screen and (max-width: 600px) {
+    h1.ui.header {
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    .menu {
+      margin-top: 3rem;
+      display: flex;
+      font-size: 0.5rem;
+    }
+
+    .wrap_menu {
+      margin-right: 0.75rem;
+    }
+  }
 
 export default Container

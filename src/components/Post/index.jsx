@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Modal, Header, Button, Icon, Input } from 'semantic-ui-react'
+import { Modal, Header, Button, Icon, Input, Responsive } from 'semantic-ui-react'
 import { axios } from '../../utils/axios'
-import { InputStyle } from './style'
+import { InputStyle, EditorStyle } from './style'
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite'
 import 'react-markdown-editor-lite/lib/index.css'
+import ModeToggleCust from '../EditorPlugin/ModeToggleCust'
 
 const Post = () => {
   const [values, setValues] = useState({
@@ -66,6 +67,7 @@ const Post = () => {
   }
 
   const mdParser = new MarkdownIt(/* Markdown-it options */)
+  MdEditor.use(ModeToggleCust)
 
   return (
     <Modal trigger={<span className="link">投稿する</span>} closeIcon basic>
@@ -80,12 +82,33 @@ const Post = () => {
             />
           </InputStyle>
         </Header>
-        <MdEditor
-          name="content"
-          value={values.content}
-          renderHTML={text => mdParser.render(text)}
-          onChange={handleEditorChange}
-        />
+        <EditorStyle>
+        <Responsive minWidth={600}>
+          <MdEditor
+            name="content"
+            value={values.content}
+            renderHTML={text => mdParser.render(text)}
+            onChange={handleEditorChange}
+            plugins={['header', 'fornts', 'link', 'clear', 'logger', 'mode-toggle', 'full-screen']}
+          />
+        </Responsive>
+        <Responsive maxWidth={599}>
+          <MdEditor
+            name="content"
+            value={values.content}
+            renderHTML={text => mdParser.render(text)}
+            onChange={handleEditorChange}
+            config={{
+              view: {
+                menu: true,
+                md: true,
+                html: false,
+              }
+            }}
+            plugins={['header', 'fornts', 'link', 'clear', 'logger', 'mode-toggle-cust', 'full-screen']}
+          />
+        </Responsive>
+        </EditorStyle>
       </Modal.Content>
       <Modal.Actions>
         <Button color="green" inverted onClick={post}>

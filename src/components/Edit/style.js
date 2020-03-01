@@ -6,3 +6,8 @@ export const InputStyle = styled.div`
     width: 62.5%;
   }
 `
+export const EditorStyle = styled.div`
+  .rc-md-editor {
+    min-height: 30rem;
+  }
+`
