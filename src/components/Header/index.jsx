@@ -24,6 +24,12 @@ const Header = props => {
   }
   const image_file = props.image_path ? props.image_path : 'avator.png'
   const [open, setOpen] = useState(false)
+  const [options, setOptions] = useState([
+    {
+      text: '',
+      value: ''
+    }
+  ])
 
   const handleConfirm = res => {
     setOpen(res)
@@ -36,7 +42,7 @@ const Header = props => {
           <div className="title">
             <Link to="/home">Chiritsumo</Link>
           </div>
-          <Responsive minWidth={600}>
+          <Responsive minWidth={750}>
             {props.auth && (
               <Link to={'/user/' + encodeURIComponent(String(props.user_id))}>
                 <Image
@@ -52,6 +58,11 @@ const Header = props => {
             )}
             <div className="nav">
               <ul>
+                {props.auth && (
+                  <li>
+                    <Link to="/user/search">会員検索</Link>
+                  </li>
+                )}
                 <li>
                   {props.auth ? <Post /> : <Link to="/login">ログイン</Link>}
                 </li>
@@ -67,12 +78,17 @@ const Header = props => {
               </ul>
             </div>
           </Responsive>
-          <Responsive maxWidth={599}>
+          <Responsive maxWidth={749}>
             <div className="menu-wrap">
               <Dropdown text="menu" button floating>
                 <Dropdown.Menu>
                   {props.auth ? (
                     <>
+                      <Dropdown.Item
+                        text="会員検索"
+                        as={Link}
+                        to="/user/search"
+                      />
                       <Dropdown.Item
                         text="マイページ"
                         as={Link}
