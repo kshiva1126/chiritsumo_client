@@ -11,6 +11,7 @@ import Profile from './components/Profile'
 import Follow from './components/Follow'
 import Favorite from './components/Favorite'
 import ChangePassword from './components/ChangePassword'
+import SearchUser from './components/SearchUser'
 
 import useAuth from './utils/useAuth'
 
@@ -23,6 +24,7 @@ function App() {
       {auth ? (
         <Switch>
           <Route path="/home" component={Home} />
+          <Route path="/user/search" component={SearchUser} />
           <Route path="/user/:id" component={User} />
           <Route path="/post/:id" component={Detail} />
           <Route path="/profile" component={Profile} />

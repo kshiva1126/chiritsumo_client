@@ -137,7 +137,7 @@ const Edit = props => {
       </Modal.Content>
       <Modal.Actions>
         <Button color="green" inverted onClick={edit}>
-          <Icon name="paper plane" /> 編集する
+          <Icon name="paper plane" /> 保存する
         </Button>
       </Modal.Actions>
     </Modal>
