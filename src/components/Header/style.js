@@ -34,11 +34,7 @@ const Container = styled.div`
     cursor: pointer;
   }
 
-  .menu-wrap {
-    text-align: right;
-  }
-
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 749px) {
     .title {
       text-align: center;
       font-size: 2rem;
@@ -46,6 +42,11 @@ const Container = styled.div`
 
     .link {
       color: initial;
+    }
+
+    .menu-wrap {
+      margin-top: 1rem;
+      text-align: right;
     }
   }
 `
