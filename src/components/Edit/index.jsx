@@ -40,15 +40,15 @@ const Edit = props => {
     }
     if (values.title.length > 100) {
       err = true
-      alert('タイトルは50文字以内で入力してください')
+      alert('タイトルは100文字以内で入力してください')
     }
     if (!values.content) {
       err = true
       alert('本文は必須です')
     }
-    if (values.content.length > 300) {
+    if (values.content.length > 1000) {
       err = true
-      alert('本文は300文字以内で入力してください')
+      alert('本文は1000文字以内で入力してください')
     }
 
     return err
